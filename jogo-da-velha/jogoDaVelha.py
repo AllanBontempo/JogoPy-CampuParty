@@ -90,13 +90,14 @@ def verificar_ganhador():
             empate += 1
         if empate == JOGADOR1_GANHOU:
             return 0
-        return None
+
+    return None
 
 
 while ganhador is None:
     imprimir_quadro()
     jogada = input(
-        f'Jogador {jogador_atual} - escolha uma posição x.y'
+        f'Jogador {jogador_atual} - escolha uma posição x.y\n\n'
     )
 
     x, y = jogada.split('.')
@@ -111,5 +112,15 @@ while ganhador is None:
         jogador_atual = SIMBOLO_JOGADOR1
 
     ganhador = verificar_ganhador()
+
+    imprimir_quadro()
+
+    if ganhador != CODIGO_VAZIO:
+        print(f'O jogador {ganhador} ganhou!')
+
+    else:
+        print('Deu velha!')
+
+    print('Fim de jogo!')
 
 
